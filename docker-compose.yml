@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # 1. Veritabanı Servisi (Sıfırdan SQL Server)
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: minilms_db
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=A1b2C3d4_Projesi_Gizli! # 8 Karakter, büyük/küçük ve özel krkter zorunlu
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "A1b2C3d4_Projesi_Gizli!", "-Q", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 2. Veritabanı Otomatik Kurulum (Table/View Oluşturucu) Servisi
+  db-init:
+    image: mcr.microsoft.com/mssql-tools
+    container_name: minilms_db_init
+    depends_on:
+      db:
+        condition: service_healthy # db tam açılmadan devreye girmez
+    volumes:
+      - ./db-init:/scripts
+    # Açlır açılmaz db içindeki setup dosyasını otomatik çalıştırıp tüm tabloları oluşturup kapanır:
+    command: /bin/bash -c "/opt/mssql-tools/bin/sqlcmd -S db -U sa -P 'A1b2C3d4_Projesi_Gizli!' -d master -i /scripts/setup.sql"
+
+  # 3. Bizim Python FastAPI Backend Servisimiz
+  web:
+    build: .
+    container_name: minilms_backend
+    ports:
+      - "8000:8000"
+    environment:
+      # Yukarıdaki yeni Docker Veritabanı ayağına bağlanmasını söylüyoruz (db:1433)
+      - DB_URL=mssql+pyodbc://sa:A1b2C3d4_Projesi_Gizli!@db:1433/obs?driver=ODBC+Driver+17+for+SQL+Server
+    depends_on:
+      db:
+        condition: service_healthy # Veritabanı 1433 portunu açmadan Python ayağa kalkmaz!
