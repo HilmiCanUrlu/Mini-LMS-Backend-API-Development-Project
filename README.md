@@ -43,7 +43,7 @@ Buraya uygulamanıza ait ekran görüntülerini ekleyebilirsiniz:
 
 > [!TIP]
 > **Swagger UI (API Dökümantasyonu)**
-> ![Swagger UI](buraya_goruntu_yolu.png)
+> ![Swagger UI](ekran görüntüleri/FireShot Capture 066 - Mini LMS Backend API - Swagger UI - [127.0.0.1].png)
 > *Otomatik oluşturulan interaktif API dökümantasyonu.*
 
 > [!TIP]
