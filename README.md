@@ -39,7 +39,6 @@ Sistemi test etmek için aşağıdaki varsayılan hesapları kullanabilirsiniz:
 
 ## 📸 Ekran Görüntüleri
 
-Buraya uygulamanıza ait ekran görüntülerini ekleyebilirsiniz:
 
 ### **Swagger UI (API Dökümantasyonu)**
 ![Swagger UI](ekran%20görüntüleri/FireShot%20Capture%20066%20-%20Mini%20LMS%20Backend%20API%20-%20Swagger%20UI%20-%20[127.0.0.1].png)
@@ -107,10 +106,10 @@ API üzerinden işlem yaparken kullanabileceğiniz örnek JSON gövdeleri:
 ```json
 {
   "ogrenci_id": 210201005,
-  "ad": "Ece",
-  "soyad": "Kaya",
+  "ad": "Ali",
+  "soyad": "Veli",
   "bolum_id": 1,
-  "sifre": 123456
+  "sifre": 123
 }
 ```
 
@@ -128,7 +127,7 @@ API üzerinden işlem yaparken kullanabileceğiniz örnek JSON gövdeleri:
 ### **3. Giriş Yapma (`POST /auth/login`)**
 *Form Data (x-www-form-urlencoded) olarak gönderilmelidir:*
 - `username`: 210201001 (Öğrenci) veya admin (Öğretmen)
-- `password`: 123456
+- `password`: 123
 
 ---
 
