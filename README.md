@@ -41,15 +41,11 @@ Sistemi test etmek için aşağıdaki varsayılan hesapları kullanabilirsiniz:
 
 Buraya uygulamanıza ait ekran görüntülerini ekleyebilirsiniz:
 
-> [!TIP]
-> **Swagger UI (API Dökümantasyonu)**
-> ![Swagger UI](ekran görüntüleri/FireShot Capture 066 - Mini LMS Backend API - Swagger UI - [127.0.0.1].png)
-> *Otomatik oluşturulan interaktif API dökümantasyonu.*
+### **Swagger UI (API Dökümantasyonu)**
+![Swagger UI](ekran%20görüntüleri/FireShot%20Capture%20066%20-%20Mini%20LMS%20Backend%20API%20-%20Swagger%20UI%20-%20[127.0.0.1].png)
+*Otomatik oluşturulan interaktif API dökümantasyonu.*
 
-> [!TIP]
-> **Veritabanı Şeması**
-> ![Veritabanı](buraya_goruntu_yolu_2.png)
-> *SQL Server üzerindeki tablo yapısı.*
+
 
 ---
 
