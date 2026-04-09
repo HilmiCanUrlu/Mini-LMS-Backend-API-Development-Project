@@ -50,11 +50,4 @@ CREATE INDEX IX_Ogrenciler_BolumID ON Ogrenciler (bolum_id);
 Sistem 1000-5000 kayıt bandında tek konteyner ile oldukça stabil çalışmaktadır. Darboğaz noktası sadece karmaşık join operasyonları içeren transkript sorgularıdır.
 
 ---
-
-## 5. Uygulanan İyileştirmeler (V2 Kapsamında)
-
-1.  **View Optimizasyonu**: View içindeki hesaplamalar (Ortalama hesaplama) DB motoruna bırakıldı.
-2.  **DTO (Schema) Kullanımı**: Sadece gerekli alanlar (Pydantic modelleri ile) transfer edilerek network trafiği %40 azaltıldı.
-
----
 **Sonuç**: Mini LMS v2, planlanan 1000 öğrenci yükünü başarıyla karşılamaktadır. Önerilen indekslerin uygulanmasıyla transkript sorgusundaki gecikme 185ms'den <50ms seviyesine çekilebilir.
