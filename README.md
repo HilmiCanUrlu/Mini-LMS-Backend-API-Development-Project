@@ -24,8 +24,8 @@ Sistemi test etmek için aşağıdaki varsayılan hesapları kullanabilirsiniz:
 
 | Rol | Kullanıcı Adı (Username) | Şifre (Password) |
 | :--- | :--- | :--- |
-| **Öğretmen / Admin** | `admin` | `123456` |
-| **Öğrenci** | `210201001` | `123456` |
+| **Öğretmen / Admin** | `admin/ogretmen` | `123` |
+| **Öğrenci** | `1/herhangi bir öğrenci no` | `123` |
 
 ## 🛠️ Teknoloji Yığını
 
