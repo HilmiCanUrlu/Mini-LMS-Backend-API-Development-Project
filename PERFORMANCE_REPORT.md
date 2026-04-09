@@ -9,13 +9,13 @@ Bu rapor, sisteme **1000 aktif öğrenci**, **10 farklı ders** ve toplamda **30
 
 ## 2. Endpoint Performans Analizi
 
-| Endpoint | Ortalama Yanıt Süresi (ms) | Durum |
+| Endpoint | Ortalama Yanıt Süresi (ms) 
 | :--- | :--- | :--- |
-| `GET /ogrenci/{id}` | 12ms | ✅ Mükemmel |
-| `POST /auth/login` | 45ms | ✅ İyi (Hash maliyeti dahil) |
-| `GET /ders` | 8ms | ✅ Mükemmel |
-| `GET /ders/analiz` | 120ms | ⚠️ Orta (Agregasyon içerir) |
-| **`GET /ogrenci/{id}/transkript`** | **185ms** | 🔴 **En Yavaş Endpoint** |
+| `GET /ogrenci/{id}` | 12ms 
+| `POST /auth/login` | 45ms 
+| `GET /ders` | 8ms 
+| `GET /ders/analiz` | 120ms 
+| **`GET /ogrenci/{id}/transkript`** | **185ms** 
 
 ### **Neden En Yavaş?**
 `GET /ogrenci/{id}/transkript` endpoint'i, veritabanı seviyesinde `vw_TranskriptSenaryosu2` view'ını kullanır. Bu view; `Ogrenciler`, `Bolumler`, `DersKayitlari`, `Dersler` ve `Notlar` tablolarını birleştirir (JOIN). 1000 öğrenci ve 3000 not kaydı altında, özellikle JOIN operasyonları indeksleme olmadan maliyetlidir.
